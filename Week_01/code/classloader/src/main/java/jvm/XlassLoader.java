@@ -29,6 +29,7 @@ public class XlassLoader extends ClassLoader {
     protected Class<?> findClass(String name) {
         try {
             URL path = XlassLoader.class.getClassLoader().getResource("Hello.xlass");
+            assert path != null;
             System.out.println(path.toURI());
             byte[] bytes = Files.readAllBytes(Paths.get(path.toURI()));
             reverse(bytes);
